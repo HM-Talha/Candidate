@@ -271,6 +271,11 @@ body {
   margin: 5px;
   align-items: center;
 }
+.descriptionBox {
+  /* border: 1px solid; */
+  display: flex;
+  flex-direction: column;
+}
 .userImgBox {
   /* border: 1px solid; */
   border-radius: 50%;
@@ -282,9 +287,10 @@ body {
 .para2 {
   margin: 8px 0 0 20px;
 }
-.para2 span {
+.descriptionBox span {
   font-size: 0.8rem;
   color: gray;
+  margin-left: 20px;
 }
 .cardBox .description {
   background-color: #2ad9da;
@@ -294,6 +300,7 @@ body {
   width: 90%;
   color: #fff;
   padding: 8px;
+  min-height: 40px;
 }
 /* Employe Card End */
 /* Sight Drawer Start */
@@ -393,7 +400,7 @@ body {
     padding: 10px;
   }
   .signUpParent {
-    height: 130vh;
+    height: 140vh;
   }
   .inputBox {
     flex-direction: column;
@@ -408,8 +415,8 @@ body {
     width: 100%;
   }
 }
-@media only screen and (max-width:880px) {
-  .sightDrawer{
+@media only screen and (max-width: 880px) {
+  .sightDrawer {
     display: none;
   }
 }
@@ -419,5 +426,8 @@ body {
   }
   .dropDownBox {
     width: 100%;
+  }
+  .signUpParent {
+    height: 150vh;
   }
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>SignUp Form</title>
     <link
       rel="stylesheet"
@@ -23,17 +24,22 @@
   <body>
     <section class="signUp">
       <section class="container signUpParent">
-        <form action="./employ.html" class="formBox">
+        <dev action="./employ.html" class="formBox">
           <div class="inputBox">
             <section class="inputBox1">
               <div>
-                <input type="text" placeholder="Name" required />
+                <input type="text" id="name" placeholder="Name" required />
               </div>
               <div>
-                <input type="number" placeholder="Phone Number" required />
+                <input
+                  type="number"
+                  id="phoneNumber"
+                  placeholder="Phone Number"
+                  required
+                />
               </div>
               <div>
-                <input type="email" placeholder="Email" required />
+                <input type="email" id="email" placeholder="Email" required />
               </div>
               <div>
                 <select name="" id="" class="drpdownBox">
@@ -47,10 +53,20 @@
             </section>
             <section class="inputBox2">
               <div>
-                <input type="text" placeholder="Username" required />
+                <input
+                  type="text"
+                  id="userName"
+                  placeholder="Username"
+                  required
+                />
               </div>
               <div>
-                <input type="password" placeholder="Password" required />
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
               </div>
               <div>
                 <div class="imgBox">
@@ -61,6 +77,7 @@
                       name="myFile"
                       class="drop-zone__input"
                       required
+                      id="image"
                     />
                   </div>
                 </div>
@@ -76,14 +93,15 @@
                   name="myFile"
                   class="drop-zone__input"
                   required
+                  id="resume"
                 />
               </div>
             </div>
           </section>
           <div class="btnbox">
-            <button>SignUp</button>
+            <button onclick="addCandidate()">SignUp</button>
           </div>
-        </form>
+        </dev>
       </section>
     </section>
     <div class="sightDrawer">
@@ -98,16 +116,20 @@
         <span>Interface</span>
       </section>
       <section class="candidate">
-        <p onclick="changePagetoCandidae()" style="cursor: pointer;"><i class="fa-solid fa-user"></i>Candidates</p>
-        <p onclick="changePageToJob()" style="cursor: pointer;"><i class="fa-solid fa-gear"></i> Job</p>
+        <p onclick="changePagetoCandidae()" style="cursor: pointer">
+          <i class="fa-solid fa-user"></i>Candidates
+        </p>
+        <p onclick="changePageToJob()" style="cursor: pointer">
+          <i class="fa-solid fa-gear"></i> Job
+        </p>
       </section>
       <section class="addons">
-          <span>Addons</span>
+        <span>Addons</span>
       </section>
       <section class="pagesChart">
-          <p><i class="fa-solid fa-folder"></i>Pages</p>
-          <p><i class="fa-solid fa-chart-bar"></i>Chart</p>
-          <p><i class="fa-solid fa-table-cells"></i>Tables</p>
+        <p><i class="fa-solid fa-folder"></i>Pages</p>
+        <p><i class="fa-solid fa-chart-bar"></i>Chart</p>
+        <p><i class="fa-solid fa-table-cells"></i>Tables</p>
       </section>
       <section class="arrowBox">
         <i class="fa-solid fa-angle-left"></i>
@@ -130,4 +152,5 @@
     crossorigin="anonymous"
   ></script>
   <script src="app.js"></script>
+ 
 </html>

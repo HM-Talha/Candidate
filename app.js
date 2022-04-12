@@ -72,11 +72,64 @@ function updateThumbnail(dropZoneElement, file) {
 
 // Routing page
 function changePage() {
-    window.location.assign("./signup.html")
+  window.location.assign("./signup.html");
 }
-function changePagetoCandidae(){
-    window.location.assign("./employeCards.html")
+function changePagetoCandidae() {
+  window.location.assign("./employeCards.html");
 }
-function changePageToJob(){
-    window.location.assign("./employ.html")
+function changePageToJob() {
+  window.location.assign("./employ.html");
 }
+
+// api integeration
+
+fetch("https://www.superadmin.shop/api/v1/user")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.result);
+
+    let names = document.getElementsByClassName("name");
+    let description = document.getElementsByClassName("description");
+    let job = document.getElementsByClassName("job");
+    let img = document.getElementsByClassName("img");
+    for (let i = 0; i < names.length; i++) {
+      names[i].innerText = data.result[i].name;
+      description[i].innerText = data.result[i].description;
+      job[i].innerText = data.result[i].job;
+      // img[i].src = data.result[i].img;
+    }
+  })
+  .catch((err) => console.log(err));
+
+//add candidate
+const addCandidate = async () => {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let userName = document.getElementById("userName").value;
+  let phoneNumber = document.getElementById("phoneNumber").value;
+  let image = document.getElementById("image").value;
+  let resume = document.getElementById("resume").value;
+  let password = document.getElementById("password").value;
+  console.log(name, email, password, userName, phoneNumber, image, resume);
+
+  let formData = {
+    name,
+    email,
+    userName,
+    phoneNumber,
+    image,
+    resume,
+    password,
+  };
+
+  const res = await axios.post("https://www.superadmin.shop/api/v1/" + "user", {
+    email: email,
+    password: password,
+    // phoneNumber: phoneNumber,
+  });
+  console.log(res);
+  if (res.data.msg === "user added") {
+    alert("User Signup Successfully !!!");
+    window.location.assign("./employeCards.html");
+  }
+};
